@@ -1,0 +1,28 @@
+@import "~bootstrap/scss/bootstrap";
+
+[hidden] {
+    display: none !important;
+}
+
+@include media-breakpoint-up(md){
+    .comment-reply{
+        margin-left: 2em;
+    }
+}
+
+.admin-actions, .comment-actions{
+    >:not(:last-child) {
+        margin-right: 0.4em;
+    }
+}
+.comment-reply{
+    margin-left: 0.6em;
+
+    > .card{
+            border-top: 0;
+            border-right: 0;
+            border-bottom: 0;
+        }
+
+
+}
