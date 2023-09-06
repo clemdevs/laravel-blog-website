@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class BlogPost extends Model
 {
-    use HasFactory, Likable, MetaData;
+    use HasFactory, MetaData;
 
     /**
      * The attributes that are mass assignable.

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\DashboardController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LikeController;
@@ -37,6 +38,7 @@ Route::prefix('register')->name('register')->group(function () {
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('post', BlogController::class);
+    Route::resource('categories', CategoryController::class);
     Route::resource('comments', CommentController::class);
     Route::resource('replies', ReplyController::class);
 });

@@ -1,4 +1,9 @@
 @import "~bootstrap/scss/bootstrap";
+$fa-font-path:"~fa/../webfonts";
+@import "~fa/fontawesome.scss";
+@import "~fa/solid.scss";
+@import "~fa/regular.scss";
+@import "~fa/brands.scss";
 
 [hidden] {
     display: none !important;
@@ -23,6 +28,10 @@
             border-right: 0;
             border-bottom: 0;
         }
+}
 
-
+.about{
+    li > i {
+        margin-right: 0.8em;
+    }
 }

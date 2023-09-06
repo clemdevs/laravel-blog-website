@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreCategoryRequest;
-use App\Http\Requests\UpdateCategoryRequest;
+use App\Http\Requests\Categories\StoreCategoryRequest;
+use App\Http\Requests\Categories\UpdateCategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -14,7 +14,6 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
@@ -22,7 +21,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('blog.categories.create');
     }
 
     /**
@@ -31,6 +30,8 @@ class CategoryController extends Controller
     public function store(StoreCategoryRequest $request)
     {
         Category::create($request->validated());
+
+        return redirect()->intended()->with('success', 'Category created successfully');
     }
 
     /**
@@ -44,9 +45,9 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Category $category)
     {
-        //
+        return view('blog.categories.edit', compact('category', $category));
     }
 
     /**
@@ -55,13 +56,16 @@ class CategoryController extends Controller
     public function update(UpdateCategoryRequest $request, Category $category)
     {
         $category->update($request->validated());
+        return redirect()->back()->with('success', 'Category updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        return redirect()->back()->with('success', 'Category deleted successfully');
     }
 }
