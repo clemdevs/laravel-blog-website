@@ -9,9 +9,39 @@ $fa-font-path:"~fa/../webfonts";
     display: none !important;
 }
 
-@include media-breakpoint-up(md){
+@include media-breakpoint-up(lg){
     .comment-reply{
         margin-left: 2em;
+    }
+
+    .menu-end{
+        >:not(:last-child) {
+            margin-right: 0.8em;
+        }
+    }
+}
+
+@include media-breakpoint-down(lg){
+    .user-area{
+        padding: 0.5em 0;
+    }
+
+    article.search{
+        padding: 0.5em 0;
+    }
+}
+
+article.search{
+    button{
+        margin-left: 0.2em;
+    }
+}
+
+.user-area{
+    .fa-user{
+        padding: 0.4em;
+        border: 1px solid $dark;
+        border-radius: 50%;
     }
 }
 
