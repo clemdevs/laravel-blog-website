@@ -9,5 +9,5 @@ This is an example blog made with Laravel.
 3. Create a new database and configure the .env file accordingly.
 4. Setup MailTrap for receiving emails
 5. run `php artisan migrate:fresh --seed` to seed the database with demo data.
-6. run `npm install && npm run --dev` to start up the frontend.
+6. run `npm install` and `npm run dev` to start up the frontend.
 7. run `php artisan serve` to start the server.
