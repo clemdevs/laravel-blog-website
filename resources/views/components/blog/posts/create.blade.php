@@ -25,11 +25,11 @@
     </div>
     <div class="mb-3 form-check">
         <div class="form-group">
-            <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
+            <input type="file" name="image" class="form-control-file">
+            @error('image')
+                <x-flash-message type="danger">{{ $message }}</x-flash-message>
+            @enderror
         </div>
-        @error('image')
-            <x-flash-message type="danger">{{ $message }}</x-flash-message>
-        @enderror
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

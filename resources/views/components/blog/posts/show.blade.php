@@ -7,7 +7,7 @@
 @endif
 
 <h2 class="mb-2">{{ $post->title }}</h2>
-<img src={{ asset($post->image->url) }} class="img-fluid mb-2" />
+<img src="{{ $post->image ? asset($post->image->url) : '' }}" class="img-fluid mb-2" />
 @include('components.blog.posts.posts-metadata', ['author' => $post->user->name, 'postedAt' => date('m-d-Y'), strtotime($post->updated_at) ])
 <p>{{ $post->content }}</p>
 

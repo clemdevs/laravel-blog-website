@@ -38,8 +38,23 @@ article.search{
 }
 
 .user-area{
-    .fa-user{
-        padding: 0.4em;
+    .dropdown-container{
+        position: relative;
+    }
+
+    @include media-breakpoint-up(lg){
+        .dropdown-menu[data-bs-popper] {
+            top: 100%;
+            left: 100%;
+            right: 0;
+            transform: translateX(-100%);
+        }
+    }
+    .default-user{
+        width: 32px; height:32px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
         border: 1px solid $dark;
         border-radius: 50%;
     }

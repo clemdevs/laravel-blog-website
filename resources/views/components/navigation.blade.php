@@ -40,11 +40,12 @@
 
             @if(Auth::check())
             <div class="user-area">
-                <div class="dropdown">
-                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle"
-                        data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="dropdown-container">
+                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         @if(!Auth::user()->image)
-                        <i class="fa-regular fa-user"></i>
+                        <div class="default-user" role="button">
+                            <i class="fa-regular fa-user"></i>
+                        </div>
                         @endif
                         {{ Auth::user()->name }}
                     </a>

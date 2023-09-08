@@ -42,12 +42,12 @@ class BlogController extends Controller
 
         $imageData = $postRequest['image'];
 
-        if (!empty($imageData)) {
-            $imagePath = ImageUploadService::uploadImage($imageData, 'images');
-        }
-
         $user = Auth::user();
         $post = BlogPost::create(array_merge($validatedData, ['user_id' => $user->id]));
+
+        if (!empty($imageData)) {
+            $imagePath = ImageUploadService::uploadImage($imageData, $post);
+        }
 
         if (isset($imagePath)) {
             $post->image()->create(['url' => $imagePath]);
@@ -90,7 +90,7 @@ class BlogController extends Controller
             if($post->image){
                 ImageUploadService::deleteImage($post->image->url);
             }
-            $imagePath = ImageUploadService::uploadImage($validatedData['image'], 'images');
+            $imagePath = ImageUploadService::uploadImage($validatedData['image'], $post);
 
         } else {
             unset($validatedData['image']);
